@@ -21,10 +21,16 @@ public class Palestras {
 	public String getHorarioPalestra() {
 		return horarioPalestra;
 	}
+	
 	public void setHorarioPalestra(String horarioPalestra) {
 		this.horarioPalestra = horarioPalestra;
 	}
 	
-	
+	public Palestras(String nomePalestra, String salaPalestra, String horarioPalestra) {
+		super();
+		this.nomePalestra = nomePalestra;
+		this.salaPalestra = salaPalestra;
+		this.horarioPalestra = horarioPalestra;
+	}
 	
 }
