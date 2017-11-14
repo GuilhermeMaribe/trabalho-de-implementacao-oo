@@ -1,12 +1,21 @@
 
 public class Participantes {
 	
-	protected String nome;
-	protected String email;
+	private String nome;
+	private String email;
+	private Palestras palestra;
 	
-	public Participantes(String nome, String email) {
-		this.nome = nome;
-		this.email = email;
+	public Participantes(){
+		setNome(Console.readString("Digite o nome do participante: "));
+		setEmail(Console.readString("Digite o e-mail do participante: "));
+	}
+	
+	public Palestras getPalestra() {
+		return palestra;
+	}
+
+	public void setPalestra(Palestras palestra) {
+		this.palestra = palestra;
 	}
 	public String getNome() {
 		return nome;

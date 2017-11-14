@@ -1,36 +1,44 @@
 
 public class Palestras {
 
-	protected String nomePalestra;
-	protected String salaPalestra;
-	protected String horarioPalestra;
+	private String nome;
+	private String sala;
+	private String horario;
+	private String descricao;
 	
+	public Palestras (){
+		setNome(Console.readString("Digite o nome da palestra: "));
+		setSala(Console.readString("Digite a sala da palestra: "));
+		setHorario(Console.readString("Digite o horário da palestra: "));
+		setDescricao(Console.readString("Digite um resumo da palestra: "));
+	}
+		
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getSala() {
+		return sala;
+	}
+	public void setSala(String sala) {
+		this.sala = sala;
+	}
+	public String getHorario() {
+		return horario;
+	}
 	
-	public String getNomePalestra() {
-		return nomePalestra;
-	}
-	public void setNomePalestra(String nomePalestra) {
-		this.nomePalestra = nomePalestra;
-	}
-	public String getSalaPalestra() {
-		return salaPalestra;
-	}
-	public void setSalaPalestra(String salaPalestra) {
-		this.salaPalestra = salaPalestra;
-	}
-	public String getHorarioPalestra() {
-		return horarioPalestra;
+	public void setHorario(String horario) {
+		this.horario = horario;
 	}
 	
-	public void setHorarioPalestra(String horarioPalestra) {
-		this.horarioPalestra = horarioPalestra;
-	}
-	
-	public Palestras(String nomePalestra, String salaPalestra, String horarioPalestra) {
-		super();
-		this.nomePalestra = nomePalestra;
-		this.salaPalestra = salaPalestra;
-		this.horarioPalestra = horarioPalestra;
-	}
+		
 	
 }
