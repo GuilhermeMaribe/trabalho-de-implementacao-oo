@@ -27,33 +27,52 @@ public class Main {
 	private Menu menu;
 	
 	private static void cadastraEvento() {
-		// TODO Auto-generated method stub
+		for (int k = 0; k < vEvento.length; k++)
+			if (vEvento[k] == null) {
+				vEvento[k] = new Evento();
+				return;
+			}
+		System.out.println("Numero maximo de eventos atingido!");
 		
 	}
 	
 	private static void cadastraParticipantes() {
-		// TODO Auto-generated method stub
-		
+		for (int k = 0; k < vParticipante.length; k++)
+			if (vParticipante[k] == null) {
+				vParticipante[k] = new Participantes();
+				return;
+			}
+		System.out.println("Numero maximo de participantes foi atingido");
 	}
-
+	
 	private static void cadastraPalestras() {
-		// TODO Auto-generated method stub
-		
+		for (int k = 0; k < vPalestra.length; k++)
+			if (vPalestra[k] == null) {
+				vPalestra[k] = new Palestras();
+				return;
+			}
+		System.out.println("Numero maximo de palestras cadastradas");
 	}
 
 	private static void cadastraOrganizador() {
-		// TODO Auto-generated method stub
-		
+		for (int k = 0; k < vOrganizador.length; k++)
+			if (vOrganizador[k] == null) {
+				vOrganizador[k] = new Organizadores();
+				return;
+			}
+		System.out.println("Numero maximo de organizadores atingido!");
 	}
 
-	private static void cadastraSala() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	private static void listaEvento() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Eventos:");
+		if (vEvento[0] == null){
+			System.out.println("Nenhum evento cadastrado!");
+		}
+		for (int i = 0; i < vEvento.length; i++) {
+			if (vEvento[i] != null)
+				System.out.println(i + " - " + vEvento[i].getNome() + ", " + vEvento[i].getData());
+		}
 	}
 
 	private static void listaParticipantes() {
@@ -75,9 +94,16 @@ public class Main {
 	}
 
 	private static void listaPalestra() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Lista de palestras:");
+		if (vPalestra[0] == null){
+			System.out.println("Nenhuma palestra cadastrada!");
+		}
+		for (int i = 0; i < vPalestra.length; i++) {
+			if (vPalestra[i] != null)
+				System.out.println(i + " - " + vPalestra[i].getNome() + ", " + vPalestra[i].getDescricao());
+		}
 	}
+}
 
 
 	
