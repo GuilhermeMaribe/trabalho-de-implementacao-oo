@@ -38,6 +38,14 @@ public class Palestras {
 	public void setHorario(String horario) {
 		this.horario = horario;
 	}
+
+	@Override
+	public String toString() {
+		return "Nome da palestra: " + nome +
+				"\nSala numero: " + sala + 
+				"\nHorario: " + horario +
+				"\nTema: " + descricao;
+	}
 	
 		
 	

@@ -2,11 +2,11 @@ public class Main {
 
 	static int unico = 1;
 	static int decimal = 10;
-	
+		
 	static Evento vEvento[] = new Evento[unico];
 	static Palestras vPalestra[] = new Palestras[decimal];
 	static Palestrantes vPalestrante[] = new Palestrantes[decimal];
-	static Participantes vParticipante[] = new Participantes[decimal];
+	static Participantes[] vParticipante = new Participantes[decimal];
 	static Organizadores vOrganizador[] = new Organizadores[unico];
 	
 	public static void main(String[] args) {
@@ -14,18 +14,22 @@ public class Main {
 			switch (Console.readString(Menu.menu()).charAt(0)) {
 			case '1': cadastraEvento(); break;
 			case '2': cadastraParticipantes(); break;
-			case '3': cadastraPalestras(); break;
-			case '4': cadastraOrganizador(); break;
-			case '5': listaEvento(); break;
-			case '6': listaParticipantes(); break;
-			case '7': listaPalestra(); break;
-			case '8': System.exit(0); break;
+			case '3': cadastraPalestrante(); break;
+			case '4': cadastraPalestras(); break;
+			case '5': cadastraOrganizador(); break;
+			case '6': listaEvento(); break;
+			case '7': listaParticipantes(); break;
+			case '8': listaPalestra(); break;
+			case '9': ListaPalestrante(); break;
+			case '0': System.exit(0); break;
 			}
 		}
 	}
 	
-	private Menu menu;
 	
+	
+
+
 	private static void cadastraEvento() {
 		for (int k = 0; k < vEvento.length; k++)
 			if (vEvento[k] == null) {
@@ -36,7 +40,8 @@ public class Main {
 		
 	}
 	
-	private static void cadastraParticipantes() {
+	public static void cadastraParticipantes() {
+		
 		for (int k = 0; k < vParticipante.length; k++)
 			if (vParticipante[k] == null) {
 				vParticipante[k] = new Participantes();
@@ -45,6 +50,15 @@ public class Main {
 		System.out.println("Numero maximo de participantes foi atingido");
 	}
 	
+	private static void cadastraPalestrante() {
+		for (int k = 0; k < vPalestrante.length; k++)
+			if (vPalestrante[k] == null) {
+				vPalestrante[k] = new Palestrantes();
+				return;
+			}
+		System.out.println("Numero maximo de palestras cadastradas");
+		
+	}
 	private static void cadastraPalestras() {
 		for (int k = 0; k < vPalestra.length; k++)
 			if (vPalestra[k] == null) {
@@ -71,7 +85,7 @@ public class Main {
 		}
 		for (int i = 0; i < vEvento.length; i++) {
 			if (vEvento[i] != null)
-				System.out.println(i + " - " + vEvento[i].getNome() + ", " + vEvento[i].getData());
+				System.out.println(vEvento[i].toString());
 		}
 	}
 
@@ -83,11 +97,10 @@ public class Main {
 		}
 		for (int i = 0; i < vParticipante.length; i++) {
 			if (vParticipante[i] != null && vParticipante[i].getPalestra() != null){
-				System.out.println(i + " - Nome: " + vParticipante[i].getNome() + ", E-mail: " + vParticipante[i].
-						getEmail() + "Palestras selecionadas: " + vParticipante[i].getPalestra());}
+				System.out.println(vParticipante[i].toString());
+				}
 			if (vParticipante[i] != null && vParticipante[i].getPalestra() == null){
-				System.out.println(i + " - Nome: " + vParticipante[i].getNome() + ", E-mail: " + vParticipante[i].
-						getEmail() + "Nenhuma palestra selecionada");
+				System.out.println(vParticipante[i].toString() + "Nenhuma palestra selecionada");
 			}
 		}
 		
@@ -100,39 +113,19 @@ public class Main {
 		}
 		for (int i = 0; i < vPalestra.length; i++) {
 			if (vPalestra[i] != null)
-				System.out.println(i + " - " + vPalestra[i].getNome() + ", " + vPalestra[i].getDescricao());
+				System.out.println(vPalestra[i].toString());
+		}
+	}
+	
+	private static void ListaPalestrante() {
+		System.out.println("Lista de palestrantes:");
+		if (vPalestrante[0] == null){
+			System.out.println("Nenhum palestrante cadastrado!");
+		}
+		for (int i = 0; i < vPalestrante.length; i++) {
+			if (vPalestrante[i] != null)
+				System.out.println(vPalestrante[i].toString());
 		}
 	}
 }
 
-
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

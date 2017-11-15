@@ -7,6 +7,7 @@
 		private Palestras palestra;
 		private Palestrantes palestrante;
 		private Participantes participante;
+		private Organizadores organizador;
 		
 		public Evento(){
 			setNome(Console.readString("Digite o nome do evento: "));
@@ -14,9 +15,17 @@
 		    setPalestrante(palestrante);
 		    setPalestra(palestra);
 		    setParticipante(participante);
+		    setOrganizador(organizador);
 		}
-		
-				
+						
+		public Organizadores getOrganizador() {
+			return organizador;
+		}
+
+		public void setOrganizador(Organizadores organizador) {
+			this.organizador = organizador;
+		}
+
 		public Participantes getParticipante() {
 			return participante;
 		}

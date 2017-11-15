@@ -14,4 +14,10 @@ public class Organizadores {
 	public Organizadores(){
 		setNome(Console.readString("Digite o nome do Organizador: "));
 	}
+
+	@Override
+	public String toString() {
+		return "Organizador responsavel: " + nome;
+	}
+	
 }

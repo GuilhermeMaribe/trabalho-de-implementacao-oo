@@ -54,6 +54,15 @@ public class Palestrantes {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+	@Override
+	public String toString() {
+		return "Palestrante: " + nome 
+				+ "\nEmail: " + email 
+				+ "\nCurriculo: " + curriculo
+				+ "\nTelefone: " + telefone
+				+ "\nPalestra: " + palestra;
+	}
 	
 	
 	

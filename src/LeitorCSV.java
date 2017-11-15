@@ -1,43 +1,46 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.Reader;
 import java.util.Scanner;
 
-public class LeitorCSV<T> {
-	public static interface Creator<T> {
-		public T fromString(String line);
+
+public class LeitorCSV {
+
+	public static File csv = new File("participantes.csv");	
+	   
+	public static void main(String[] args) {
+		int tam=10;
+	 	Participantes user[]=new Participantes[tam];
+	 	for (int i =0;i<user.length;i++) {
+	 		user[i]=new Participantes();
+	 		user[i].setNome("null");
+	 		user[i].setEmail("null");
+	 		user[i].setNumPart(0);
+	 	}
+		        
+        try{
+        	
+			@SuppressWarnings("resource")
+			Scanner ler = new Scanner(csv);
+            String linha = new String();
+            int cont=0;
+            
+            while(ler.hasNext()){
+            	linha = ler.nextLine();
+                String[] separa = linha.split(",");
+                user[cont].setNome(separa[0]);
+                user[cont].setEmail(separa[1]);
+                user[cont].setNumPart(cont+1);
+                System.out.println(user[cont].toString());
+                cont++;
+            	}
+        
+        	}catch(FileNotFoundException e){
+            
+        }
+        
+    
+	
+	
 	}
 	
-	private Scanner line_scanner;
-	private Creator<T> creator;
-	
-	public LeitorCSV(InputStream istream, LeitorCSV.Creator<T> creator)
-	{
-		line_scanner = new Scanner(istream);
-		this.creator = creator;
-	}
-	
-	public LeitorCSV(File file, LeitorCSV.Creator<T> creator)
-			throws FileNotFoundException
-	{
-		line_scanner = new Scanner(file);
-		this.creator = creator;
-	}
-	
-	public LeitorCSV(Reader reader, LeitorCSV.Creator<T> creator) {
-		line_scanner = new Scanner(reader);
-		this.creator = creator;
-	}
-	
-	public boolean hasNext() {
-		return line_scanner.hasNext();
-	}
-	
-	public T next() {
-		if (line_scanner.hasNext()) {
-			return creator.fromString(line_scanner.nextLine());
-		}
-		return null;
-	}
 }
